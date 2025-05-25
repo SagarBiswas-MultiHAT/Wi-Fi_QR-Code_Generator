@@ -2,7 +2,7 @@
 
 This project is a simple web-based application that allows users to generate a QR code for their Wi-Fi credentials. Users can input their Wi-Fi name (SSID) and password, and the application will generate a QR code that can be scanned to connect to the Wi-Fi network.
 
-![Wi-Fi_QR-Code_Generator](https://imgur.com/1fiI0qJ)
+![Wi-Fi_QR-Code_Generator](https://imgur.com/1fiI0qJ.png)
 
 ## Features
 
