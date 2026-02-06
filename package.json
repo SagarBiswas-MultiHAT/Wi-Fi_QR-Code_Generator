@@ -1,0 +1,10 @@
+{
+    "name": "wifi-qr-code-generator",
+    "version": "1.1.0",
+    "description": "Generate Wi-Fi QR codes with format, size, and security options.",
+    "type": "module",
+    "scripts": {
+        "test": "node --test tests/wifi-string.test.js"
+    },
+    "license": "MIT"
+}

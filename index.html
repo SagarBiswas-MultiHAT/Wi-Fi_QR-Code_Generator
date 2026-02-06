@@ -5,28 +5,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wi-Fi QR Code Generator</title>
+    <meta name="description"
+        content="Generate a Wi-Fi QR code with authentication, size, and format options. No data leaves your browser.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Unbounded:wght@600;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>╰( Wi-Fi QR Code Generator )╯</h1>
-        <form id="wifi-form">
-            <label for="ssid">Wi-Fi Name (SSID):</label>
-            <input type="text" id="ssid" name="ssid" required>
+    <main class="app" aria-labelledby="app-title">
+        <header class="hero">
+            <p class="eyebrow">Offline-ready generator</p>
+            <h1 id="app-title">Wi-Fi QR Code Generator</h1>
+            <p class="subtitle">Create shareable Wi-Fi QR codes with format, size, and security options. Everything
+                stays in your browser.</p>
+        </header>
 
-            <label for="password">Password:</label>
-            <input type="text" id="password" name="password" required>
+        <section class="panel">
+            <h2>Network details</h2>
+            <form id="wifi-form">
+                <label for="ssid">Wi-Fi name (SSID)</label>
+                <input type="text" id="ssid" name="ssid" maxlength="32" autocomplete="off" spellcheck="false" required>
 
-            <button type="submit">Generate QR Code</button>
-        </form>
-        <div id="qrcode"></div>
-        <h5 id="msgStr"></h5>
-        <h6></h6>
-        <a id="download-link" style="display: none;">Download QR Code</a>
-    </div>
+                <div class="row">
+                    <label for="password">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="password" name="password" autocomplete="new-password"
+                            spellcheck="false">
+                        <button type="button" id="toggle-password" class="ghost">Show</button>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div>
+                        <label for="auth">Security type</label>
+                        <select id="auth" name="auth">
+                            <option value="WPA" selected>WPA/WPA2</option>
+                            <option value="WEP">WEP</option>
+                            <option value="nopass">No password</option>
+                        </select>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="hidden" name="hidden">
+                        <label for="hidden">Hidden network</label>
+                    </div>
+                </div>
+
+                <h3>QR settings</h3>
+                <div class="grid">
+                    <div>
+                        <label for="size">QR size</label>
+                        <!-- size of the QR code -->
+                        <input type="range" id="size" name="size" min="38" max="1100" step="2" value="480">
+                        <span id="size-value" class="hint">256 px</span>
+                    </div>
+                    <div>
+                        <label for="error">Error correction</label>
+                        <select id="error" name="error">
+                            <option value="L">L (7%)</option>
+                            <option value="M" selected>M (15%)</option>
+                            <option value="Q">Q (25%)</option>
+                            <option value="H">H (30%)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="format">Export format</label>
+                        <select id="format" name="format">
+                            <option value="png" selected>PNG</option>
+                            <option value="svg">SVG</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="primary">Generate QR code</button>
+                    <button type="button" id="reset" class="ghost">Reset</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel preview" aria-live="polite">
+            <h2>Preview</h2>
+            <div id="qrcode" class="qr-stage" role="img" aria-label="QR code preview"></div>
+            <p id="status" class="status" role="status">Enter your Wi-Fi details to generate a QR code.</p>
+            <div class="actions">
+                <button type="button" id="copy" class="ghost">Copy payload</button>
+                <a id="download-link" class="primary" style="display: none;" download>Download</a>
+            </div>
+            <p class="privacy">Your SSID and password never leave this device. Close the tab to clear everything.</p>
+        </section>
+    </main>
+
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>

@@ -1,41 +1,116 @@
 # Wi-Fi QR Code Generator
 
-This project is a simple web-based application that allows users to generate a QR code for their Wi-Fi credentials. Users can input their Wi-Fi name (SSID) and password, and the application will generate a QR code that can be scanned to connect to the Wi-Fi network.
+Create professional Wi-Fi QR codes in seconds. This app runs entirely in the browser, supports WPA/WPA2, WEP, and open networks, and lets you export PNG or SVG with adjustable size and error correction.
 
 ![Wi-Fi_QR-Code_Generator](https://imgur.com/1fiI0qJ.png)
 
+## Why this project
+
+If you share Wi-Fi often, typing passwords is slow and error-prone. This tool generates the standardized QR payload so phones can connect instantly. No accounts, no backend, and no data leaves your device.
+
 ## Features
 
-- Input fields for Wi-Fi name (SSID) and password.
-- Generates a QR code based on the provided Wi-Fi credentials.
-- Option to download the generated QR code as an image.
-- Responsive and user-friendly design.
+- WPA/WPA2, WEP, and open network support.
+- Hidden SSID option.
+- Adjustable QR size and error correction.
+- Export PNG or SVG.
+- Copy the raw Wi-Fi payload for advanced use.
+- No storage, no tracking, no backend.
+- Clean, responsive UI that works on mobile and desktop.
 
-## How to Use
+## Quick start
 
-1. Open the `index.html` file in a web browser.
-2. Enter your Wi-Fi name (SSID) and password in the respective input fields.
-3. Click the "Generate QR Code" button.
-4. The QR code will be displayed below the form.
-5. Click the "Download QR Code" link to save the QR code as an image.
+1. Open [index.html](index.html) in a modern browser.
+2. Enter your SSID and password.
+3. Choose security type, size, and format.
+4. Click "Generate QR code".
+5. Scan or download the QR code.
 
-## Technologies Used
+## How it works
 
-- **HTML**: Structure of the application.
-- **CSS**: Styling for a responsive and visually appealing design.
-- **JavaScript**: Logic for generating the QR code and handling user interactions.
-- **QRCode.js**: Library for generating QR codes.
+The generator builds a standard Wi-Fi QR payload like this:
 
-## Setup
+```
+WIFI:T:WPA;S:MyNetwork;P:MyPassword;H:true;;
+```
 
-1. Clone or download this repository.
-2. Ensure you have an internet connection to load the `QRCode.js` library from the CDN.
-3. Open the `index.html` file in any modern web browser.
+- `T` is the auth type (`WPA`, `WEP`, or `nopass`).
+- `S` is the SSID.
+- `P` is the password (omitted for open networks).
+- `H:true` is used when the SSID is hidden.
+
+Reserved characters in SSID or password (`\`, `;`, `,`, `:`, `"`) are escaped before encoding.
+
+## Settings guide
+
+- **Security type**
+	- WPA/WPA2: password length 8-63 characters.
+	- WEP: 5 or 13 ASCII characters, or 10 or 26 hex characters.
+	- No password: no password required.
+- **Hidden network**: include `H:true` in the payload.
+- **QR size**: visual size in pixels.
+- **Error correction**: more correction increases reliability but makes the QR denser.
+- **Format**: PNG for raster images, SVG for crisp scaling in print.
+
+## Project structure
+
+```
+.
+├── index.html
+├── style.css
+├── script.js
+├── lib
+│   └── wifi-qr.js
+├── tests
+│   └── wifi-string.test.js
+├── .github
+│   └── workflows
+│       └── python-ci.yml
+└── LICENSE
+```
+
+## Development
+
+No build step is required. Open [index.html](index.html) in your browser.
+
+If you want to run tests locally:
+
+```
+npm test
+```
+
+## CI
+
+GitHub Actions runs the tests on every push and pull request to `main` using the workflow in [.github/workflows/python-ci.yml](.github/workflows/python-ci.yml).
+
+## Offline use
+
+The QR library is loaded from a CDN by default. To run fully offline:
+
+1. Download `qrcode.min.js` from https://github.com/soldair/node-qrcode
+2. Save it next to [index.html](index.html).
+3. Replace the CDN script tag with a local reference.
+
+## Privacy and security
+
+- All data stays in your browser.
+- Nothing is stored or transmitted.
+- Close the tab to clear everything.
+
+## Troubleshooting
+
+- **"QR code library failed to load"**: Check your connection or switch to the offline setup above.
+- **WPA password rejected**: Must be 8-63 characters.
+- **WEP password rejected**: Use 5/13 ASCII or 10/26 hex characters.
+
+## Compatibility
+
+Works in current versions of Chrome, Edge, Firefox, and Safari.
+
+## Contributing
+
+Issues and pull requests are welcome. Please include clear reproduction steps and screenshots for UI bugs.
 
 ## License
 
-This project is open-source and available under the MIT License.
-
----
-
-Feel free to contribute to this project by submitting issues or pull requests!
+MIT. See [LICENSE](LICENSE).
