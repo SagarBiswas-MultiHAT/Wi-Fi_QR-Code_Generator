@@ -2,7 +2,10 @@
 
 Create professional Wi-Fi QR codes in seconds. This app runs entirely in the browser, supports WPA/WPA2, WEP, and open networks, and lets you export PNG or SVG with adjustable size and error correction.
 
-![Wi-Fi_QR-Code_Generator](https://imgur.com/1fiI0qJ.png)
+![](https://imgur.com/yQKomWE.png)
+![](https://imgur.com/uHBIp6g.png)
+
+##### Live: https://sagarbiswas-multihat.github.io/wifi-qr-generator/
 
 ## Why this project
 
