@@ -1,11 +1,23 @@
 # Wi-Fi QR Code Generator
 
+<div align="right">
+
+[![CI](https://github.com/SagarBiswas-MultiHAT/WiFi-QR-Generator/actions/workflows/python-ci.yml/badge.svg)](https://github.com/SagarBiswas-MultiHAT/WiFi-QR-Generator/actions/workflows/python-ci.yml)
+[![Live Demo](https://img.shields.io/badge/demo-GitHub%20Pages-blue)](https://sagarbiswas-multihat.github.io/WiFi-QR-Generator/)
+[![License](https://img.shields.io/github/license/SagarBiswas-MultiHAT/WiFi-QR-Generator)](https://github.com/SagarBiswas-MultiHAT/WiFi-QR-Generator/blob/main/LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/SagarBiswas-MultiHAT/WiFi-QR-Generator)](https://github.com/SagarBiswas-MultiHAT/WiFi-QR-Generator)
+[![Issues](https://img.shields.io/github/issues/SagarBiswas-MultiHAT/WiFi-QR-Generator)](https://github.com/SagarBiswas-MultiHAT/WiFi-QR-Generator/issues)
+[![Pages](https://img.shields.io/github/deployments/SagarBiswas-MultiHAT/WiFi-QR-Generator/github-pages?label=GitHub%20Pages)](https://github.com/SagarBiswas-MultiHAT/WiFi-QR-Generator/deployments)
+[![Vanilla JS](https://img.shields.io/badge/tech-vanilla%20js-yellowgreen)](https://github.com/SagarBiswas-MultiHAT/WiFi-QR-Generator)
+
+</div>
+
 Create professional Wi-Fi QR codes in seconds. This app runs entirely in the browser, supports WPA/WPA2, WEP, and open networks, and lets you export PNG or SVG with adjustable size and error correction.
 
 ![](https://imgur.com/yQKomWE.png)
 ![](https://imgur.com/uHBIp6g.png)
 
-##### Live: https://sagarbiswas-multihat.github.io/wifi-qr-generator/
+##### Live: https://sagarbiswas-multihat.github.io/WiFi-QR-Generator/
 
 ## Why this project
 
